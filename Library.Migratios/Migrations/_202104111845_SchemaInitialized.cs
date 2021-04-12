@@ -1,5 +1,4 @@
 ﻿using FluentMigrator;
-using System;
 using System.Data;
 
 namespace Library.Migrations.Migrations
@@ -36,7 +35,7 @@ namespace Library.Migrations.Migrations
                 .WithColumn("PersonId").AsInt32().NotNullable()
                 .ForeignKey("FK_Entrusts_Persons", "Persons", "Id")
                 .OnDelete(Rule.None)
-                .WithColumn("ReturnDate").AsDateTime2();
+                .WithColumn("ReturnDate").AsDateTime2().NotNullable();
         }
         public override void Down()
         {

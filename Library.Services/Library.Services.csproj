@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.14" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.14" />
+    <ProjectReference Include="..\Library.Entities\Library.Entities.csproj" />
+    <ProjectReference Include="..\Library.Infrastructure\Library.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
