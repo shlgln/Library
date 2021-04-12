@@ -21,7 +21,6 @@ namespace Library.Persistence.EF.Entrusts
             _.Property(_ => _.PersonId).IsRequired();
 
             _.Property(_ => _.ReturnDate);
-            
         }
     }
 }

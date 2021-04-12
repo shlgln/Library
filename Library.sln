@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Infrastructure", "L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Persistence.EF", "Library.Persistence.EF\Library.Persistence.EF.csproj", "{5138C647-DA94-4DBE-AB38-818467211F29}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Migratios", "Library.Migratios\Library.Migratios.csproj", "{0EA987A2-B528-4265-B66E-485CB98D1762}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5138C647-DA94-4DBE-AB38-818467211F29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5138C647-DA94-4DBE-AB38-818467211F29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5138C647-DA94-4DBE-AB38-818467211F29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EA987A2-B528-4265-B66E-485CB98D1762}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EA987A2-B528-4265-B66E-485CB98D1762}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EA987A2-B528-4265-B66E-485CB98D1762}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EA987A2-B528-4265-B66E-485CB98D1762}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
