@@ -1,8 +1,11 @@
 using Library.Infrastructure.Application;
 using Library.Persistence.EF;
 using Library.Persistence.EF.BookCategories;
+using Library.Persistence.EF.Books;
 using Library.Services.BookCategories;
 using Library.Services.BookCategories.Contracts;
+using Library.Services.Books;
+using Library.Services.Books.Contracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -47,7 +50,10 @@ namespace Library.RestApi
             services.AddScoped<BookCategoryService, BookCategoryAppService>();
             services.AddScoped<BookCategoryRepository, EFBookCategoryRepository>();
 
-            
+            services.AddScoped<BookService, BookAppService>();
+            services.AddScoped<BookRepository, EFBookRepository>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
