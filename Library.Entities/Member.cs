@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Library.Entities
 {
-    public class Person : Entity<int>
+    public class Member : Entity<int>
     {
-        public Person()
+        public Member()
         {
             Entrusts = new HashSet<Entrust>();
         }

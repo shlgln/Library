@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Library.Persistence.EF.Persons
 {
-    class PersonEntityMap : IEntityTypeConfiguration<Person>
+    class MemberEntityMap : IEntityTypeConfiguration<Member>
     {
-        public void Configure(EntityTypeBuilder<Person> _)
+        public void Configure(EntityTypeBuilder<Member> _)
         {
-            _.ToTable("Persons");
+            _.ToTable("Members");
 
             _.HasKey(_ => _.Id);
             _.Property(_ => _.Id).IsRequired().ValueGeneratedOnAdd();
