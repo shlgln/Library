@@ -8,9 +8,9 @@ namespace Library.TestTools.BookCategoreis
 {
     public static class BookCategoryFactory
     {
-        public static AddBookCategoryDto GenerateBookCategoryDto(string title = "dummy")
+        public static RegisterBookCategoryDto GenerateBookCategoryDto(string title = "dummy")
         {
-            return new AddBookCategoryDto { Title = title };
+            return new RegisterBookCategoryDto { Title = title };
         }
 
         public static BookCategory GenerateBookCategory(string title = "داستان های فرانسوی")

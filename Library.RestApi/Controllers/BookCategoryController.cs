@@ -17,7 +17,7 @@ namespace Library.RestApi.Controllers
         }
 
         [HttpPost]
-        public async Task<int> Register([FromBody]AddBookCategoryDto dto)
+        public async Task<int> Register([FromBody]RegisterBookCategoryDto dto)
         {
             return await _service.Register(dto);
         }

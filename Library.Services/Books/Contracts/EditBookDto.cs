@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Library.Services.Books.Contracts
 {
-    public class AddBookDto
+    public class EditBookDto
     {
         [Required]
         public int BookCategoryId { get; set; }
@@ -15,6 +15,5 @@ namespace Library.Services.Books.Contracts
         public string Author { get; set; }
         [Required]
         public byte MinimumAge { get; set; }
-
     }
 }

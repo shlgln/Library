@@ -1,6 +1,7 @@
 ﻿using Library.Entities;
 using Library.Infrastructure.Application;
 using Library.Services.Books.Contracts;
+using Library.Services.Books.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,7 +20,21 @@ namespace Library.Services.Books
             _repository = repository;
         }
 
-        public async Task<int> Register(AddBookDto dto)
+        public async Task Edit(int id, EditBookDto dto)
+        {
+            var book = await _repository.FindBookById(id);
+            if (book == null)
+                throw new NotFoundBookByIdException();
+
+            book.BookCategoryId = dto.BookCategoryId;
+            book.Title = dto.Title;
+            book.Author = dto.Author;
+            book.MinimumAge = dto.MinimumAge;
+
+            await _unitofwork.Complete();
+        }
+
+        public async Task<int> Register(RegisterBookDto dto)
         {
             var newBook = new Book
             {

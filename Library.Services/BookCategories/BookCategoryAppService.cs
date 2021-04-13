@@ -16,7 +16,7 @@ namespace Library.Services.BookCategories
             _repository = repository;
         }
 
-        public async Task<int> Register(AddBookCategoryDto dto)
+        public async Task<int> Register(RegisterBookCategoryDto dto)
         {
             var bookCategory = new BookCategory
             {

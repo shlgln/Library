@@ -8,6 +8,7 @@ namespace Library.Services.Books.Contracts
 {
     public interface BookService : Service
     {
-        Task<int> Register(AddBookDto dto);
+        Task<int> Register(RegisterBookDto dto);
+        Task Edit(int id, EditBookDto dto);
     }
 }

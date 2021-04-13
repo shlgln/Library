@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Library.Services.BookCategories.Contracts
 {
-    public class AddBookCategoryDto
+    public class RegisterBookCategoryDto
     {
         [Required]
         public string Title { get; set; }

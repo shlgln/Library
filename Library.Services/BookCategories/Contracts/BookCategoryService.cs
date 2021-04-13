@@ -8,6 +8,6 @@ namespace Library.Services.BookCategories.Contracts
 {
     public interface BookCategoryService : Service
     {
-        Task<int> Register(AddBookCategoryDto dto);
+        Task<int> Register(RegisterBookCategoryDto dto);
     }
 }

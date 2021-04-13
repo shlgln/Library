@@ -7,6 +7,7 @@ using Library.Persistence.EF.Books;
 using Library.Services.Books;
 using Library.Services.Books.Contracts;
 using Library.TestTools.BookCategoreis;
+using Library.TestTools.Books;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,7 @@ namespace Library.Tests.Specs.Books.Add
             _repository = new EFBookRepository(_contex);
             _sut = new BookAppService(_unitofwork, _repository);
         }
+
         //[Given("یک دسته‌بندی به نام داستان‌های فرانسوی در لیست دسته‌بندی کتاب وجود دارد.")]
         private void Given()
         {
@@ -44,13 +46,7 @@ namespace Library.Tests.Specs.Books.Add
         //رنج سنی بالای 18سال را در دسته‌بندی داستان‌های فرانسوی، تعریف می‌کنم")]
         private async void When()
         {
-            var dto = new AddBookDto
-            {
-                BookCategoryId = bookCategory.Id,
-                Title = "در جستجوی زمان از دست رفته",
-                Author = "مارسل پروست",
-                MinimumAge = 18
-            };
+            var dto = BookFactory.GenerateRegisterBookDto(bookCategory.Id);
 
             bookId = await _sut.Register(dto);
         }

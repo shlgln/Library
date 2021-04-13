@@ -19,9 +19,17 @@ namespace Library.RestApi.Controllers
             _service = service;
         }
 
-        public async Task<int> Register(AddBookDto dto)
+        [HttpPost]
+        public async Task<int> Register(RegisterBookDto dto)
         {
             return await _service.Register(dto);
+        }
+
+
+        [HttpPut]
+        public async Task Edit(int id, EditBookDto dto)
+        {
+            await _service.Edit(id, dto);
         }
     }
 }
