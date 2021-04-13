@@ -1,6 +1,7 @@
 ﻿using Library.Services.BookCategories;
 using Library.Services.BookCategories.Contracts;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Library.RestApi.Controllers
@@ -17,9 +18,15 @@ namespace Library.RestApi.Controllers
         }
 
         [HttpPost]
-        public async Task<int> Register([FromBody]RegisterBookCategoryDto dto)
+        public async Task<int> Register(RegisterBookCategoryDto dto)
         {
             return await _service.Register(dto);
+        }
+
+        [HttpGet]
+        public async Task<IList<GetCategoryBooksDto>> GetBooks(int id)
+        {
+            return await _service.GetBooksOfCategory(id);
         }
     }
 }

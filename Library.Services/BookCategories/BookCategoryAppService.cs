@@ -1,6 +1,7 @@
 ﻿using Library.Entities;
 using Library.Infrastructure.Application;
 using Library.Services.BookCategories.Contracts;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Library.Services.BookCategories
@@ -14,6 +15,11 @@ namespace Library.Services.BookCategories
         {
             _unitofwork = unitOfWork;
             _repository = repository;
+        }
+
+        public async Task<IList<GetCategoryBooksDto>> GetBooksOfCategory(int id)
+        {
+            return await _repository.GetCategoryBooks(id);
         }
 
         public async Task<int> Register(RegisterBookCategoryDto dto)

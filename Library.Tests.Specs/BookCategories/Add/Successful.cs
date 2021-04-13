@@ -1,9 +1,12 @@
-﻿using Library.Infrastructure.Application;
+﻿using FluentAssertions;
+using Library.Infrastructure.Application;
 using Library.Infrastructure.Test;
 using Library.Persistence.EF;
 using Library.Persistence.EF.BookCategories;
 using Library.Services.BookCategories;
 using Library.Services.BookCategories.Contracts;
+using Library.TestTools.BookCategoreis;
+using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -34,15 +37,15 @@ namespace Library.Tests.Specs.BookCategories.Add
         //[When("من یک دسته‌بندی کتاب با نام داستان‌های فرانسوی تعریف می‌کنم")]
         private async Task When()
         {
-            //var dto = BookCategoryFactory.GenerateBookCategoryDto("داستان های فرانسوی");
-            //bookId = await _sut.Register(dto);
+            var dto = BookCategoryFactory.GenerateBookCategoryDto("داستان های فرانسوی");
+            bookId = await _sut.Register(dto);
         }
 
         //[Then("باید یک دسته‌بندی کتاب با نام داستان‌های فرانسوی در لیست دسته‌بندی کتاب وجود داشته‌باشد")]
         private void Then()
         {
-            //var expected = _readDataContext.BookCategories.Single(_ => _.Id == bookId);
-            //expected.tit.Should().Be(bookId);
+            var expected = _readDataContext.BookCategories.Single(_ => _.Id == bookId);
+            expected.Id.Should().Be(bookId);
         }
 
         [Fact]
