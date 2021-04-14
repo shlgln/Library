@@ -2,11 +2,14 @@ using Library.Infrastructure.Application;
 using Library.Persistence.EF;
 using Library.Persistence.EF.BookCategories;
 using Library.Persistence.EF.Books;
+using Library.Persistence.EF.Entrusts;
 using Library.Persistence.EF.Members;
 using Library.Services.BookCategories;
 using Library.Services.BookCategories.Contracts;
 using Library.Services.Books;
 using Library.Services.Books.Contracts;
+using Library.Services.Entrusts;
+using Library.Services.Entrusts.Contracts;
 using Library.Services.Members;
 using Library.Services.Members.Contracts;
 using Microsoft.AspNetCore.Builder;
@@ -58,11 +61,25 @@ namespace Library.RestApi
 
             services.AddScoped<MemberService, MemberAppService>();
             services.AddScoped<MemberRepository, EFMemberRepository>();
+
+            services.AddScoped<EntrustService, EntrustAppService>();
+            services.AddScoped<EntrustRepository, EFEntrustRepository>();
+
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
