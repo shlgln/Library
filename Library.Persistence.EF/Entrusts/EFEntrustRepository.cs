@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Library.Persistence.EF.Entrusts
 {
@@ -21,6 +22,11 @@ namespace Library.Persistence.EF.Entrusts
         public void Add(Entrust entrust)
         {
             _set.Add(entrust);
+        }
+
+        public async Task<Entrust> FindEntrustById(int id)
+        {
+            return await _set.FirstOrDefaultAsync(_ => _.Id == id);
         }
     }
 }

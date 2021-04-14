@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Library.Services.Entrusts.Exceptions
 {
-    public class TackBackdateIsAfterReturnDateException: BusinessException
+    public class TackBackDateBookIsAfterReturnDateException: BusinessException
     {
     }
 }

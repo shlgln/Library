@@ -75,5 +75,21 @@ namespace Library.Services.Tests.Unit.Entrusts
 
             expected.Should().Throw<MemberAgeIsLessThanMinimumAgeBookException>();
         }
+
+        [Fact]
+        public void TackBack_throws_exception_when_tackbackDate_after_RerturnDate()
+        {
+            var bookCategory = BookCategoryFactory.GenerateBookCategory();
+            var book = new BookBuilder().GenerateAddBookWithBookCategory(bookCategory).Build();
+            _contex.Manipulate(_ => _.Books.Add(book));
+            var member = MemberFactory.GenerateAddMember(15);
+            _contex.Manipulate(_ => _.Members.Add(member));
+            var entrust = new EntrustBuilder().GenerateAddEntrustWithReturnDate(DateTime.Now.AddDays(-1)).Build();
+            _contex.Manipulate(_ => _.Entrusts.Add(entrust));
+
+            Func<Task> expected = () => _sut.TackBackBook(entrust.Id);
+
+            expected.Should().Throw<TackBackDateBookIsAfterReturnDateException>();
+        }
     }
 }

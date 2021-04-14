@@ -16,9 +16,19 @@ namespace Library.TestTools.Entrusts
             _ReturnDate = returnDate;
             return this;
         }
-        public RegisterEntrustDto Build()
+        public RegisterEntrustDto BuildDto()
         {
             return new RegisterEntrustDto
+            {
+                MemberId = _MemberId,
+                BookId = _BookId,
+                ReturnDate = _ReturnDate
+            };
+        }
+
+        public Entrust Build()
+        {
+            return new Entrust
             {
                 MemberId = _MemberId,
                 BookId = _BookId,

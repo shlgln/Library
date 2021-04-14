@@ -44,6 +44,15 @@ namespace Library.Services.Entrusts
             await _unitOfWork.Complete();
             return entrust.Id;
         }
+
+        public async Task TackBackBook(int id)
+        {
+            var entrust = await _repository.FindEntrustById(id);
+
+            if (entrust.ReturnDate < DateTime.Now)
+                throw new TackBackDateBookIsAfterReturnDateException();
+        }
+
         private async Task CheckIsMemberAgeinAgeRangeOfBook(int bookId, int memberId)
         {
             var book = await _bookRepository.FindBookById(bookId);
@@ -51,13 +60,6 @@ namespace Library.Services.Entrusts
             if (book.MinimumAge > member.Age)
             {
                 throw new MemberAgeIsLessThanMinimumAgeBookException();
-            }
-        }
-        private void CheckIsTackBackDateAfterReturnDate(DateTime returnDate)
-        {
-            if (returnDate < DateTime.Now)
-            {
-                throw new TackBackdateIsAfterReturnDateException();
             }
         }
     }
