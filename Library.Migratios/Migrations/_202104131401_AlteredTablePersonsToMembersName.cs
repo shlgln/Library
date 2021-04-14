@@ -10,10 +10,13 @@ namespace Library.Migratios.Migrations
     {
         public override void Up()
         {
+            Rename.Column("PersonId").OnTable("Entrusts").To("MemberId");
             Rename.Table("Persons").To("Members");
+           
         }
         public override void Down()
         {
+            Rename.Column("MemberId").OnTable("Entrusts").To("PersonId");
             Rename.Table("Members").To("Persons");
         }
 

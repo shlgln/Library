@@ -58,8 +58,6 @@ namespace Library.RestApi
 
             services.AddScoped<MemberService, MemberAppService>();
             services.AddScoped<MemberRepository, EFMemberRepository>();
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

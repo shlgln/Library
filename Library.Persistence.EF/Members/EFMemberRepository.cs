@@ -1,6 +1,7 @@
 ﻿using Library.Entities;
 using Library.Services.Members.Contracts;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace Library.Persistence.EF.Members
 {
@@ -18,6 +19,11 @@ namespace Library.Persistence.EF.Members
         public void Add(Member member)
         {
             _set.Add(member);
+        }
+
+        public async Task<Member> FindMemberById(int id)
+        {
+            return await _set.SingleOrDefaultAsync(_ => _.Id == id);
         }
     }
 }

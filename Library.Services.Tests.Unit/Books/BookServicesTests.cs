@@ -56,7 +56,7 @@ namespace Library.Services.Tests.Unit.Books
             _contex.Manipulate(_ => _.BookCategories.Add(newbookCategory));
 
             var bookCategory = BookCategoryFactory.GenerateBookCategory("داستان‌های فرانسوی");
-            var book = new BookBuilder().GenerateAddProductWithBookCategory(bookCategory).Build();
+            var book = new BookBuilder().GenerateAddBookWithBookCategory(bookCategory).Build();
             _contex.Manipulate(_ => _.Books.Add(book));
 
             var dto = BookFactory.GenerateEditBookDto(newbookCategory.Id);
@@ -76,7 +76,7 @@ namespace Library.Services.Tests.Unit.Books
             _contex.Manipulate(_ => _.BookCategories.Add(newbookCategory));
 
             var bookCategory = BookCategoryFactory.GenerateBookCategory("داستان‌های فرانسوی");
-            var book = new BookBuilder().GenerateAddProductWithBookCategory(bookCategory).Build();
+            var book = new BookBuilder().GenerateAddBookWithBookCategory(bookCategory).Build();
             _contex.Manipulate(_ => _.Books.Add(book));
 
             var dto = BookFactory.GenerateEditBookDto(newbookCategory.Id);

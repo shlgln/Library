@@ -49,7 +49,7 @@ namespace Library.Services.Tests.Unit.BookCategories
         public async Task GetBooks_retrieves_books_of_a_bookCategory()
         {
             var frenchStoryCategory = BookCategoryFactory.GenerateBookCategory();
-            var frenchBook = new BookBuilder().GenerateAddProductWithBookCategory(frenchStoryCategory).Build();
+            var frenchBook = new BookBuilder().GenerateAddBookWithBookCategory(frenchStoryCategory).Build();
             _context.Manipulate(_ => _.Books.Add(frenchBook));
 
             var greekStoryCategory = BookCategoryFactory.GenerateBookCategory("داستان های یونانی");

@@ -13,7 +13,7 @@ namespace Library.TestTools.Books
         private string _Author = "مارسل پروست";
         private string _Title = "در جستجوی زمان از دست رفته";
         private byte _MinimumAge = 18;
-        public BookBuilder GenerateAddProductWithBookCategory(BookCategory bookCategory)
+        public BookBuilder GenerateAddBookWithBookCategory(BookCategory bookCategory)
         {
             _BookCategory = bookCategory;
             return this;

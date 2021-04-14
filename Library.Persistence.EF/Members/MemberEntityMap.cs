@@ -20,7 +20,7 @@ namespace Library.Persistence.EF.Persons
             _.Property(_ => _.Address).IsRequired().HasMaxLength(400);
 
             _.HasMany(_ => _.Entrusts).WithOne(_ => _.Person)
-                .HasForeignKey(_ => _.PersonId)
+                .HasForeignKey(_ => _.MemberId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }

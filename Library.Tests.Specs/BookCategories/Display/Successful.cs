@@ -40,7 +40,7 @@ namespace Library.Tests.Specs.BookCategories.Display
         private void Given()
         {
             frenchStoryCategory = BookCategoryFactory.GenerateBookCategory();
-            frenchBook = new BookBuilder().GenerateAddProductWithBookCategory(frenchStoryCategory).Build();
+            frenchBook = new BookBuilder().GenerateAddBookWithBookCategory(frenchStoryCategory).Build();
             _context.Manipulate(_ => _.Books.Add(frenchBook));
 
             var greekStoryCategory = BookCategoryFactory.GenerateBookCategory("داستان های یونانی");

@@ -1,4 +1,5 @@
-﻿using Library.Services.Members.Contracts;
+﻿using Library.Entities;
+using Library.Services.Members.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,6 +14,24 @@ namespace Library.TestTools.Members
             {
                 FullName = "آریاگلشن",
                 Age = 15,
+                Address = "شیراز، زرهی، خیابان آقایی"
+            };
+        }
+        public static RegisterMembetDto GenerateAddMemberDtoBy()
+        {
+            return new RegisterMembetDto
+            {
+                FullName = "آریاگلشن",
+                Age = 15,
+                Address = "شیراز، زرهی، خیابان آقایی"
+            };
+        }
+        public static Member GenerateAddMember(byte age = 19)
+        {
+            return new Member
+            {
+                FullName = "آریاگلشن",
+                Age = age,
                 Address = "شیراز، زرهی، خیابان آقایی"
             };
         }
