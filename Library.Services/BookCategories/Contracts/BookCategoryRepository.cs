@@ -10,6 +10,6 @@ namespace Library.Services.BookCategories.Contracts
     public interface BookCategoryRepository : Repository
     {
         void Add(BookCategory bookCategory);
-        Task<IList<GetCategoryBooksDto>> GetCategoryBooks(int id);
+        Task<GetCategoryBooksDto> GetBooksOfACategory(int id);
     }
 }

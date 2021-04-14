@@ -14,7 +14,7 @@ using Xunit;
 
 namespace Library.Tests.Specs.BookCategories.Display
 {
-    public class Successful
+    public class DisplayBookOfACategory
     {
         EFDataContext _context;
         EFDataContext _readDataContext;
@@ -22,10 +22,10 @@ namespace Library.Tests.Specs.BookCategories.Display
         BookCategoryService _sut;
         UnitOfWork _unitofwork;
         BookCategory frenchStoryCategory;
-        IList<GetCategoryBooksDto> expected;
+        GetCategoryBooksDto expected;
         Book frenchBook;
 
-        public Successful()
+        public DisplayBookOfACategory()
         {
             var db = new EFInMemoryDatabase();
             _context = db.CreateDataContext<EFDataContext>();
@@ -65,7 +65,10 @@ namespace Library.Tests.Specs.BookCategories.Display
         //رنج سنی بالای 18 سال در لیست کتاب‌های دسته‌بندی با نام داستان‌های فرانسوی وجود داشته باشد")]
         private void Then()
         {
-            expected.Should().HaveCount(1);
+            expected.Title.Should().Be("داستان های فرانسوی");
+            expected.Books.Should().HaveCount(1).
+                And.ContainSingle(_ => _.Title == "در جستجوی زمان از دست رفته" 
+                                  && _.MinimumAge == 18 && _.Author == "مارسل پروست" );
         }
 
         [Fact]

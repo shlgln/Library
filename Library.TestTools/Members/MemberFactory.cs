@@ -13,16 +13,7 @@ namespace Library.TestTools.Members
             return new RegisterMembetDto
             {
                 FullName = "آریاگلشن",
-                Age = 15,
-                Address = "شیراز، زرهی، خیابان آقایی"
-            };
-        }
-        public static RegisterMembetDto GenerateAddMemberDtoBy()
-        {
-            return new RegisterMembetDto
-            {
-                FullName = "آریاگلشن",
-                Age = 15,
+                Age = 19,
                 Address = "شیراز، زرهی، خیابان آقایی"
             };
         }

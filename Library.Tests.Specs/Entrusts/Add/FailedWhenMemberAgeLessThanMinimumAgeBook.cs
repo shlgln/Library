@@ -49,7 +49,8 @@ namespace Library.Tests.Specs.Entrusts.Add
             _sut = new EntrustAppService(_unitofwork, _repository, _bookRepository, _memberRepository);
         }
 
-        //[Given("کتابی با نام درجستجوی زمان از دست رفته و عضوی از کتابخانه با نام آریا گلشن وجود دارد")]
+        //[Given("کتاب با نام درجستجوی زمان از دست رفته و رنج سنی بالای 18 در لیست کتاب‌ها
+        //و عضو کتابخانه با نام آریا گلشن و سن 15 سال در لیست اعضای کتابخانه وجود دارد")]
         private void Given()
         {
             var bookCategory = BookCategoryFactory.GenerateBookCategory();
@@ -59,13 +60,15 @@ namespace Library.Tests.Specs.Entrusts.Add
             _contex.Manipulate(_ => _.Members.Add(member));
         }
 
-        //[When("کتابی با نام درجستجوی زمان از دست‌رفته را به عضوی از کتابخانه
-        //با نام آریا گلشن و تاریخ برگشت  20/01/1400 به امانت می‌دهم")]
+        //[When("می‌خواهم کتاب با نام درجستجوی زمان از دست‌رفته
+        //و رنج سنی بالای 18 سال را به عضو کتابخانه با نام آریا گلشن و سن 15 سال به امانت بدهم")]
         private async void When()
         {
             var dto = EntrustFactory.GenerateAddEntrustDto(member.Id, book.Id);
             expected = () =>  _sut.Register(dto);
         }
+
+        //[Then("باید خطای "سن عضو کتابخانه برای امانت بردن کتاب مناسب نیست"، رخ دهد")]
         private void Then()
         {
             expected.Should().Throw<MemberAgeIsLessThanMinimumAgeBookException> ();

@@ -17,6 +17,7 @@ namespace Library.TestTools.Books
                 MinimumAge = 18
             };
         }
+
         public static EditBookDto GenerateEditBookDto(int bookCategoryId)
         {
             return new EditBookDto

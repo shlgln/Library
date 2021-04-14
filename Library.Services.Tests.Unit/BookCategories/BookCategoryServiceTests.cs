@@ -42,7 +42,6 @@ namespace Library.Services.Tests.Unit.BookCategories
             var expected = _readDataContext.BookCategories.Single(_ => _.Id == actual);
 
             expected.Title.Should().Be(dto.Title);
-
         }
 
         [Fact]
@@ -65,8 +64,8 @@ namespace Library.Services.Tests.Unit.BookCategories
 
             var expected = await _sut.GetBooksOfCategory(frenchStoryCategory.Id);
 
-            expected.Should().HaveCount(1);
-
+            expected.Title.Should().Be("داستان های فرانسوی");
+            expected.Books.Should().HaveCount(1);
         }
     }
 }

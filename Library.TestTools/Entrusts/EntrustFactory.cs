@@ -16,15 +16,5 @@ namespace Library.TestTools.Entrusts
                 ReturnDate = DateTime.Now.AddDays(10)
             };
         }
-
-        public static RegisterEntrustDto GenerateAddEntrust(int memberId, int bookId)
-        {
-            return new RegisterEntrustDto
-            {
-                MemberId = memberId,
-                BookId = bookId,
-                ReturnDate = DateTime.Now.AddDays(10)
-            };
-        }
     }
 }

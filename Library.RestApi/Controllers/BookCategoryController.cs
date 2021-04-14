@@ -24,7 +24,7 @@ namespace Library.RestApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IList<GetCategoryBooksDto>> GetBooks(int id)
+        public async Task<GetCategoryBooksDto> GetBooks(int id)
         {
             return await _service.GetBooksOfCategory(id);
         }

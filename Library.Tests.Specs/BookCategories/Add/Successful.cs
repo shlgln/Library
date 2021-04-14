@@ -30,6 +30,7 @@ namespace Library.Tests.Specs.BookCategories.Add
             _sut = new BookCategoryAppService(_repository, _unitofwork);
         }
 
+        //[Given("در لیست دسته‌بندی کتاب هیچ دسته‌بندی وجود ندارد")]
         private void Given()
         {
         }
@@ -45,7 +46,7 @@ namespace Library.Tests.Specs.BookCategories.Add
         private void Then()
         {
             var expected = _readDataContext.BookCategories.Single(_ => _.Id == bookId);
-            expected.Id.Should().Be(bookId);
+            expected.Title.Should().Be("داستان های فرانسوی");
         }
 
         [Fact]

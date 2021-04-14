@@ -5,6 +5,7 @@ using Library.Persistence.EF;
 using Library.Persistence.EF.Members;
 using Library.Services.Members;
 using Library.Services.Members.Contracts;
+using Library.TestTools.Members;
 using System.Linq;
 using Xunit;
 
@@ -29,12 +30,7 @@ namespace Library.Services.Tests.Unit.Memebers
         [Fact]
         public async void Register_registers_a_member_properly()
         {
-            var dto = new RegisterMembetDto
-            {
-                FullName = "آریاگلشن",
-                Age = 15,
-                Address = "شیراز، زرهی، خیابان آقایی"
-            };
+            var dto = MemberFactory.GenerateAddMemberDto();
             var memberId = await _sut.Register(dto);
 
             var expected = _readDataContext.Members.Single(_ => _.Id == memberId);

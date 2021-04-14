@@ -1,5 +1,6 @@
 ﻿using Library.Entities;
 using Library.Services.BookCategories.Contracts;
+using Library.Services.Books.Contracts;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,15 +25,21 @@ namespace Library.Persistence.EF.BookCategories
             _set.Add(bookCategory);
         }
 
-        public async Task<IList<GetCategoryBooksDto>> GetCategoryBooks(int id)
+        public async Task<GetCategoryBooksDto> GetBooksOfACategory(int id)
         {
-            var query = _set.Where(_ => _.Id == id).Select(_ => new GetCategoryBooksDto
+            var query = _set.Select(_ => new GetCategoryBooksDto
             {
+                Id = _.Id,
                 Title = _.Title,
-                Books = _.Books.Select(_ => _.Title).ToList()
+                Books = _.Books.Select(_ => new GetBookDto
+                { 
+                    Title = _.Title,
+                    Author = _.Author,
+                    MinimumAge = _.MinimumAge
+                }).ToList()
 
             });
-            return await query.ToListAsync();
+            return await query.SingleOrDefaultAsync(_ => _.Id == id);
         }
     }
 }

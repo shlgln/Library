@@ -48,7 +48,8 @@ namespace Library.Tests.Specs.Entrusts.TackBack
             _sut = new EntrustAppService(_unitofwork, _repository, _bookRepository, _memberRepository);
         }
 
-        //[Given("در لیست امانات، کتاب با نام درجستجوی زمان از دست رفته و عضو کتابخانه با نام آریا گلشن و تاریخ برگشت 20/01/1400 وجود دارد")]
+        //[Given("در لیست امانات، کتاب با نام درجستجوی زمان از دست رفته
+        //و عضو کتابخانه با نام آریا گلشن و تاریخ برگشت 20/01/1400 وجود دارد")]
         private void Given()
         {
             var bookCategory = BookCategoryFactory.GenerateBookCategory();
@@ -60,7 +61,8 @@ namespace Library.Tests.Specs.Entrusts.TackBack
             _contex.Manipulate(_ => _.Entrusts.Add(entrust));
         }
 
-        //[When("کتاب با نام درجستجوی زمان از دست‌رفته از عضو کتابخانه با نام آریا گلشن در تاریخ 21/01/1400 تحویل می‌گیرم")]
+        //[When("کتاب با نام درجستجوی زمان از دست‌رفته از
+        //عضو کتابخانه با نام آریا گلشن در تاریخ 21/01/1400 تحویل می‌گیرم")]
         private void When()
         {
             expected = () => _sut.TackBackBook(entrust.Id);

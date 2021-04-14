@@ -70,7 +70,7 @@ namespace Library.Services.Tests.Unit.Books
         }
 
         [Fact]
-        public async void Edit_throws_exception_when_notFound_bookById()
+        public  void Edit_throws_exception_when_notFound_bookById()
         {
             var newbookCategory = BookCategoryFactory.GenerateBookCategory("داستان‌های یونانی");
             _contex.Manipulate(_ => _.BookCategories.Add(newbookCategory));

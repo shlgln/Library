@@ -24,7 +24,7 @@ namespace Library.Tests.Specs.Books.Add
         BookService _sut;
         UnitOfWork _unitofwork;
         BookRepository _repository;
-        private int bookId;
+        private int actualResult;
         public Successful()
         {
             var db = new EFInMemoryDatabase();
@@ -47,15 +47,14 @@ namespace Library.Tests.Specs.Books.Add
         private async void When()
         {
             var dto = BookFactory.GenerateRegisterBookDto(bookCategory.Id);
-
-            bookId = await _sut.Register(dto);
+            actualResult = await _sut.Register(dto);
         }
 
         //[Then("باید یک کتاب با نام درجستجوی زمان از دست‌رفته و نویسنده مارسل‌پروست و
         //رنج سنی بالای 18سال در لیست کتاب‌های دسته‌بندی با نام داستان‌های فرانسوی وجود داشته باشد")]
         private void Then()
         {
-            var expected = _readDataContext.Books.Single(_ => _.Id == bookId);
+            var expected = _readDataContext.Books.Single(_ => _.Id == actualResult);
             expected.BookCategoryId.Should().Be(bookCategory.Id);
             expected.Title.Should().Be("در جستجوی زمان از دست رفته");
             expected.Author.Should().Be("مارسل پروست");

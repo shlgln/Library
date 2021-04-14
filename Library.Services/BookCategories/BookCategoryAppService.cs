@@ -17,9 +17,9 @@ namespace Library.Services.BookCategories
             _repository = repository;
         }
 
-        public async Task<IList<GetCategoryBooksDto>> GetBooksOfCategory(int id)
+        public async Task<GetCategoryBooksDto> GetBooksOfCategory(int id)
         {
-            return await _repository.GetCategoryBooks(id);
+            return await _repository.GetBooksOfACategory(id);
         }
 
         public async Task<int> Register(RegisterBookCategoryDto dto)

@@ -38,14 +38,14 @@ namespace Library.Tests.Specs.Members.Add
 
         }
 
-        //[When("عضوی با نام و نام‌خانوادگی آریا گلشن و سن 15 سال و آدرس شیراز، زرهی، خیابان آقایی تعریف می‌کنم")]
+        //[When("عضوی با نام و نام‌خانوادگی آریا گلشن و سن 19 سال و آدرس شیراز، زرهی، خیابان آقایی تعریف می‌کنم")]
         private async void When()
         {
             var dto = MemberFactory.GenerateAddMemberDto();
             memberId = await _sut.Register(dto);
         }
 
-        //[Then("باید عضوی با نام آریا گلشن و سن 15 سال و آدرس شیراز، زرهی، خیابان آقایی در لیست اعضای کتابخانه وجود داشته باشد")]
+        //[Then("باید عضوی با نام آریا گلشن و سن 19 سال و آدرس شیراز، زرهی، خیابان آقایی در لیست اعضای کتابخانه وجود داشته باشد")]
         private void Then()
         {
             var expected = _readDataContext.Members.Single(_ => _.Id == memberId);
