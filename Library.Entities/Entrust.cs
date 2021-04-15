@@ -9,6 +9,6 @@ namespace Library.Entities
         public int MemberId { get; set; }
         public DateTime ReturnDate { get; set; }
         public Book Book  { get; set; }
-        public Member Member { get; set; }
+        public Member Person { get; set; }
     }
 }
